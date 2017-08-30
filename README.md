@@ -1,3 +1,3 @@
 # Conversor
 
-Hi dudes, don't mind this repository, is just a simple currency converter :).
+Hi dudes, don't mind this repository, it's just a simple currency converter :).

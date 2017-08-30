@@ -1,3 +1,4 @@
+
 /*
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
@@ -17,8 +18,9 @@ public class Conversor {
     public double tasaE = 3486;
     public double tasaPE = 0.00029;
     int x=0;
-    public int contador(int y){
-        return x++;
+    public int contador(int x){
+        x=x+1;
+        return (x);
     }
     public double euros_a_pesos(double cant){
         return cant*tasaE;
@@ -44,11 +46,9 @@ public class Conversor {
     }
 
     void convertir(){
-        ///String texto = "";
         double cantidad;
         int op;
         double resultado;
-        int x=0;
         int break_while = 1;
 
         while(break_while == 1){
@@ -70,6 +70,7 @@ public class Conversor {
                     cantidad = Double.parseDouble(texto);
                     resultado=pesos_a_dolares(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
                     break;
                 case 2:
                     System.out.println("Ingrese los dolares a convertir");
@@ -77,16 +78,16 @@ public class Conversor {
                     cantidad = Double.parseDouble(texto);
                     resultado=dolares_a_pesos(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
                     break;
-                case 5:
-                    break_while = 0;
-                    break;
+                
                 case 3:
                     System.out.println("Ingrese los pesos a convertir");
                     texto=scanner.nextLine();
                     cantidad = Double.parseDouble(texto);
                     resultado=pesos_a_euros(cantidad);
                     System.out.println(resultado+contador(x));
+                    System.out.println("converciones hechas: "+contador(x));
                     break;
                 case 4:
                     System.out.println("Ingrese los euros a convertir");
@@ -94,6 +95,10 @@ public class Conversor {
                     cantidad = Double.parseDouble(texto);
                     resultado=euros_a_pesos(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
+                    break;
+                case 5:
+                    break_while = 0;
                     break;
             }
         }

@@ -18,7 +18,7 @@ public class Conversor {
     public double tasaD = 2923;
     public double tasaE = 3486;
     public double tasaPE = 0.00029;
-    int x=0;
+    
     public int contador(int x){
         x=x+1;
         return (x);
@@ -54,6 +54,7 @@ public class Conversor {
     }
 
     void convertir(){
+        int x=0;
         double cantidad;
         int op;
         double resultado;

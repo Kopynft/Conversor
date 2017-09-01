@@ -1,3 +1,4 @@
+
 /*
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
@@ -12,13 +13,22 @@ import java.util.Scanner;
 * @author -Daniel
 */
 public class Conversor {
+    Scanner scanner = new Scanner(System.in);
     public double tasaPD = 0.00034;
     public double tasaD = 2923;
     public double tasaE = 3486;
     public double tasaPE = 0.00029;
-    int x=0;
-    public int contador(int y){
-        return x++;
+    
+    public int contador(int x){
+        x=x+1;
+        return (x);
+    }
+    public double positivo(double cant){
+        while(cant<0){
+            System.out.println("ingrese un valor positivo: ");
+            cant=scanner.nextDouble();
+        }
+        return cant;
     }
     public double euros_a_pesos(double cant){
         return cant*tasaE;
@@ -44,11 +54,10 @@ public class Conversor {
     }
 
     void convertir(){
-        ///String texto = "";
+        int x=0;
         double cantidad;
         int op;
         double resultado;
-        int x=0;
         int break_while = 1;
 
         while(break_while == 1){
@@ -59,41 +68,45 @@ public class Conversor {
             System.out.println("4. euros a pesos");
             System.out.println("5. Salir");
             System.out.print("Seleccione la operacion deseada: ");
-            Scanner scanner = new Scanner(System. in); 
-            String texto = scanner.nextLine();
-            op = Integer.parseInt(texto);
+            //Scanner scanner = new Scanner(System. in); 
+            op = scanner.nextInt();
 
             switch(op){
                 case 1:
                     System.out.println("Ingrese los pesos a convertir");
-                    texto = scanner.nextLine();
-                    cantidad = Double.parseDouble(texto);
+                    cantidad = scanner.nextDouble();
+                    cantidad = positivo(cantidad);
                     resultado=pesos_a_dolares(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
                     break;
                 case 2:
                     System.out.println("Ingrese los dolares a convertir");
-                    texto = scanner.nextLine();
-                    cantidad = Double.parseDouble(texto);
+                    cantidad = scanner.nextDouble();
+                    cantidad = positivo(cantidad);
                     resultado=dolares_a_pesos(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
                     break;
-                case 5:
-                    break_while = 0;
-                    break;
+                
                 case 3:
                     System.out.println("Ingrese los pesos a convertir");
-                    texto=scanner.nextLine();
-                    cantidad = Double.parseDouble(texto);
+                    cantidad = scanner.nextDouble();
+                    cantidad = positivo(cantidad);
                     resultado=pesos_a_euros(cantidad);
                     System.out.println(resultado+contador(x));
+                    System.out.println("converciones hechas: "+contador(x));
                     break;
                 case 4:
                     System.out.println("Ingrese los euros a convertir");
-                    texto = scanner.nextLine();
-                    cantidad = Double.parseDouble(texto);
+                    cantidad = scanner.nextDouble();
+                    cantidad = positivo(cantidad);
                     resultado=euros_a_pesos(cantidad);
                     System.out.println(resultado);
+                    System.out.println("conversiones hechas: "+contador(x));
+                    break;
+                case 5:
+                    break_while = 0;
                     break;
             }
         }
